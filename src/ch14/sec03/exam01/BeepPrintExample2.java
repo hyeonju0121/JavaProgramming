@@ -14,9 +14,10 @@ public class BeepPrintExample2 {
 				for (int i = 0; i < 5; i++) {
 					today = Calendar.getInstance();
 					int second = today.get(Calendar.SECOND);
-
+					
+					Thread curThread = Thread.currentThread();
 					// 메인 스레드가 작업할 내용
-					System.out.println("노래를 재생합니다.  -> " + second + "초");
+					System.out.println("노래를 재생합니다.  -> " + second + "초, " + curThread.getName());
 
 					// 2.0초간 일시 정지 -> .sleep(2000)
 					try {
@@ -34,7 +35,10 @@ public class BeepPrintExample2 {
 
 		// # 작업 2 ====================================
 		for (int i = 0; i < 5; i++) {
+			Thread curThread = Thread.currentThread();
+			
 			// 메인 스레드가 작업할 내용
+			System.out.println(curThread.getName()); // 스레드 이름 출력
 			System.out.println("가사를 출력합니다. ~~~ ");
 			System.out.println("~~~ ~~~~~~~~~~~~~~ ");
 
